@@ -1,0 +1,30 @@
+{% extends 'main_layout.html' %}
+<style>
+
+</style>
+
+{% block content %}
+    <form action="/compressors/test">
+        <div style="display:row;margin: 1vh 0vw;">
+            <div style="display:table-cell; width:50vw">
+                <a href="/"><button>Back</button></a>
+            </div>
+            <div style="display:table-cell; width:50vw;text-align:right;">
+                  <input type="submit" value="Begin Test">
+            </div>
+        </div>
+        <span style="font-size:2em; font-weight:bold">Select Compressor Model </br></span>
+        <div class="container" style="height: 80vh; border: 1px solid black; overflow:auto;margin-top:1vh;">
+          <ul>
+              {% for i in options %}
+                  <li>
+                    <input type="radio" id={{ i }} value="{{ i }}" name="compressor" required>
+                    <label for={{ i }}>{{ i.replace("_"," ") }}</label>
+                    <div class="check"></div>
+                  </li>
+              {% endfor %}
+        </ul>
+        </div>
+    </form>
+{% endblock %}
+

@@ -1,0 +1,42 @@
+{% extends 'main_layout.html' %}
+
+{% block content %}
+
+<script src="https://code.highcharts.com/highcharts.js"></script>
+{{ compressor }} <br/>
+<div id="container" style="height: 60vh; width:90vw; margin:auto;"></div>
+
+<script>
+Highcharts.chart('container', {
+    chart: {
+        type: 'line'
+    },
+    xAxis: {
+        categories: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
+    },
+    yAxis: {
+        title: {
+            text: 'Flow (LPM)'
+        }
+    },
+    xAxis: {
+        title: {
+            text: 'Pressure (PSI)'
+        }
+    },
+    title: {
+        text: 'Flow Vs Pressure'
+    },
+    plotOptions: {
+        series: {
+            fillOpacity: 0.1
+        }
+    },
+
+    series: [{
+        data: [29.9, 71.5, 106.4, 129.2, 144.0, 176.0, 135.6, 148.5, 216.4, 194.1, 95.6, 54.4]
+    }]
+});
+</script>
+
+{% endblock %}
